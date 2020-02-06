@@ -25,7 +25,7 @@
                             </div>
                             <div class="col-md-6">
                                 <label for="name" class="control-label">{{ __('Surname') }}</label>
-                                <input id="name" type="text" class="form-control @error('Surname') is-invalid @enderror" name="Surname" value="{{ old('Surname') }}" required autocomplete="name" autofocus>
+                                <input id="Surname" type="text" class="form-control @error('Surname') is-invalid @enderror" name="Surname" value="{{ old('Surname') }}" required autocomplete="name" autofocus>
 
                                 @error('Surname')
                                 <span class="invalid-feedback" role="alert">
@@ -46,7 +46,7 @@
                             </div>
                             <div class="col-md-6">
                                 <label for="name" class="control-label">{{ __('Mobile Number') }}</label>
-                                <input id="name" type="number" class="form-control @error('Mobile_Number') is-invalid @enderror" name="Mobile_Number" value="{{ old('Mobile_Number') }}" required autocomplete="name" autofocus>
+                                <input id="Mobile_Number" type="number" class="form-control @error('Mobile_Number') is-invalid @enderror" name="Mobile_Number" value="{{ old('Mobile_Number') }}" required autocomplete="name" autofocus>
 
                                 @error('Mobile_Number')
                                 <span class="invalid-feedback" role="alert">
