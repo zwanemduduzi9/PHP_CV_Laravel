@@ -55,15 +55,44 @@ class userController extends Controller
 
     }
 
-    public function edit(){
+    public function edit($id){
 
+     $userData=User::find($id);
 
+     return view('manageUsers.editUser')->with('userData',$userData);
     }
 
-    public function update()
+    public function update(Request $request,$id)
     {
+        $getUserInfo=$request::all();
+
+//        $this->validate($getUserInfo,[
+//            'name'       => 'required',
+//            'Surname'    => 'required',
+//            'email'      => 'required|email|unique:users,email'.$id,
+//            'password'   => 'same:confirm-password'
+//        ]);
+
+        if(!empty($getUserInfo['password']))
+        {
+            $getUserInfo['password']=hash::make($getUserInfo['password']);
+        }
+            else{
+                $getUserInfo=array_except($getUserInfo,array('password'));
+
+            }
+
+        $userData=User::find($id);
+
+        $userData->name                   = $getUserInfo['name'];
+        $userData->surname                = $getUserInfo['Surname'];
+        $userData->Mobile_Number          = $getUserInfo['Mobile_Number'];
+        $userData->email                  = $getUserInfo['email'];
+        $userData->update($getUserInfo);
 
 
+
+        return redirect::to('/users');
     }
 
     public function destroy($id){

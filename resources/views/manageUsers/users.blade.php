@@ -32,9 +32,9 @@
                                             @if(Auth::user()->id!=$user->id)
                                             <a id="confirmYes" class="btn btn-danger " href="{!! URL::action('userController@destroy',$user->id) !!}"  title="delete user"><i style="color: white" class="fa fa-ban"></i></a>
                                             &nbsp;
-                                            <a class="btn btn-primary" href="" title="edit user"><i class="fa fa-edit"></i></a>
+                                            <a class="btn btn-primary" href="{!! URL::action('userController@edit',$user->id) !!}" title="edit user"><i class="fa fa-edit"></i></a>
                                             @else
-                                            <a class="btn btn-primary" href="" title="edit user"><i class="fa fa-edit"></i></a>
+                                            <a class="btn btn-primary" href="{!! URL::action('userController@edit',$user->id) !!}" title="edit user"><i class="fa fa-edit"></i></a>
                                             @endif
                                         </div>
                                     </td>

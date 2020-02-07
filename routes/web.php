@@ -21,4 +21,6 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/createUsers','userController@create');
 Route::post('/users','userController@store')->name('createUser');
 Route::get('destroyUser/{id}','userController@destroy');
+Route::get('editUser/{id}','userController@edit');
+Route::Post('updateUser/{id}','userController@update');
 //Route::get('delete/{id}','UserController@destroy');
