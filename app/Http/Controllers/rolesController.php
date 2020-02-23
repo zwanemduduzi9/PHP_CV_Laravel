@@ -15,6 +15,9 @@ class rolesController extends Controller
      */
     public function index(Request $request)
     {
+        //php artisan db:seed --class=PermissionTableSeeder
+        //php artisan db:seed --class=CreateAdminUserSeeder
+        
         $roles = Role::orderBy('id','DESC')->paginate(5);
         return view('roles.index',compact('roles'))
             ->with('i', ($request->input('page', 1) - 1) * 5);
