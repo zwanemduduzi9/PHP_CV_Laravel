@@ -7,10 +7,33 @@ html,body{
     font-size:30px;
     background-color:#ffffff21;
 }
+.jconfirm-holder{
+    padding-top:0 !important ;
+    padding-bottom: 0 !important;
+}
+.jconfirm-box{
+    top: -500px !important;
+    position: absolute;
+    border-style: solid;
+    border-color: #adb5bd;
+    background-color: #e3342f;
+    /* right: -35%; */
+}
+tr:nth-child(even) {background-color: #f2f2f2;}
+table {
+  border-collapse: collapse;
+}
+
+th {
+  text-align: left;
+}
+table, th, td {
+  padding:3px !important;
+}
 #sidebar {
-    min-width: 250px;
+    min-width: 200px;
     max-width: 250px;
-    background: #082a4c;
+    background:#000000!important;
     color: #fff;
     transition: all 0.6s cubic-bezier(0.945, 0.020, 0.270, 0.665);
     transform-origin: bottom left;
@@ -41,7 +64,7 @@ html,body{
 }
 #sidebar ul li a:hover {
     color: #cc0c00;
-    background: whitesmoke;
+    background: #ead909;
 }
 
 #sidebar ul li.active > a, a[aria-expanded="true"] {
@@ -127,5 +150,5 @@ div.content {margin-left: 0;}
 footer {
     position: relative;
     bottom: 0;
-    background-color:#082a4c;
+    background-color: #000000;
 }

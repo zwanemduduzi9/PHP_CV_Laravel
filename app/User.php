@@ -19,7 +19,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name','Surname', 'email','Mobile_Number','password',
+        'name','Surname', 'email','Mobile_Number','status_id','role_id','password',
     ];
     //protected $guard_name='web';
     /**
@@ -39,4 +39,19 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+    // function getUserRole()
+    // {
+    //     return $this->hasOne('App\Role', 'id', 'role_id');
+    // }
+    // function getUserStatus()
+    // {
+    //     return $this->hasOne('App\Http\Models\Status', 'id', 'status_id');
+    // }
+    
+    function getUserStatus(){
+        return $this->hasOne('App\Http\Model\statusModel','id','status_id');
+    }
+    function getUserRole(){
+        return $this->hasOne('Spatie\Permission\Models\Role','id','role_id');
+    }
 }

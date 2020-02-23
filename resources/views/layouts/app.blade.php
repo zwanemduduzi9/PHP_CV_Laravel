@@ -11,7 +11,10 @@
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
-
+    <script src="{{ asset('js/jquery.min.js') }}" defer></script>
+    <script src="{{ asset('js/jquery-confirm.js') }}" defer></script>
+    <script src="{{ asset('js/bootstrap.min.js') }}" defer></script>
+    <script src="{{ asset('js/custom.js') }}" defer></script>
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
@@ -28,6 +31,9 @@
 <body>
 
                         @guest
+                        <body style="background-image:url('/css/images/11.jpg');
+                        background-repeat:no-repeat;background-position: center;
+                        background-size: cover;color:white">
                             <div id="app">
 {{--                            <li class="nav-item">--}}
 {{--                                <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>--}}
@@ -53,13 +59,19 @@
                                  <div class="collapse menu  navbar-collapse" id="navbarSupportedContent">
                                      <ul class="m-0 p-0 w-100">
                                          <li class="nav-item">
-                                             <a class="nav-link " href="/home"> <i class="fa fa-home"></i> Home</a>
+                                             <a class="nav-link " href="/home" style="color:white !important"> <i class="fa fa-home"></i> Home</a>
                                          </li>
+                                         @role('Admin')
                                          <li class="nav-item">
-                                             <a class="nav-link" href="/users"><i class="fa fa-eye"></i>manage Users</a>
+                                             <a class="nav-link" href="/users" style="color:white !important"><i class="fa fa-user"></i> Manage Users</a>
                                          </li>
+
+                                         <li class="nav-item">
+                                            <a class="nav-link" href="/roles" style="color:white !important"><i class="fa fa-eye "></i> Configure Roles</a>
+                                        </li>
+                                        @endrole
                                          <li>
-                                             <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                                             <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();"style="color:white !important">
                                                  Logout
                                              </a>
 

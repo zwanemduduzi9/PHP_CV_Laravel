@@ -13,7 +13,7 @@ class userController extends Controller
 {
     public function index(){
 
-        $users=User::all();
+        $users=User::where('status_id','=',1)->paginate(10);
 
         return view('manageUsers/users',compact('users'));
     }
@@ -46,6 +46,8 @@ class userController extends Controller
           $storeUserData->Mobile_Number          = $userData['Mobile_Number'];
           $storeUserData->email                  = $userData['email'];
           $storeUserData->password               = Hash::make($userData["password"]);
+          $storeUserData['status_id']            = 1;
+          $storeUserData['role_id']              = 2;
           $storeUserData->save();
 
        }
@@ -101,12 +103,13 @@ class userController extends Controller
             return redirect()->back()->withErrors(array('Error'=>'Action Prevented, You cannot delete your own account'));
         }
         $specificuser=User::find($id);
-        $specificuser->Delete();
+        $specificuser['status_id']=2;
+        $specificuser->update();
 
         return redirect::to('/users');
     }
 
-
+   
 
 
 

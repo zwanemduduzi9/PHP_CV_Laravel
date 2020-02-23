@@ -23,4 +23,5 @@ Route::post('/users','userController@store')->name('createUser');
 Route::get('destroyUser/{id}','userController@destroy');
 Route::get('editUser/{id}','userController@edit');
 Route::Post('updateUser/{id}','userController@update');
+Route::resource('roles','rolesController');
 //Route::get('delete/{id}','UserController@destroy');
