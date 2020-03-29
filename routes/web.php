@@ -24,4 +24,6 @@ Route::get('destroyUser/{id}','userController@destroy');
 Route::get('editUser/{id}','userController@edit');
 Route::Post('updateUser/{id}','userController@update');
 Route::resource('roles','rolesController');
+Route::get('/translate','translateController@index');
+Route::post('/translate','translateController@store')->name('translate');
 //Route::get('delete/{id}','UserController@destroy');

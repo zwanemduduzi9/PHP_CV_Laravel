@@ -70,6 +70,9 @@
                                             <a class="nav-link" href="/roles" style="color:white !important"><i class="fa fa-eye "></i> Configure Roles</a>
                                         </li>
                                         @endrole
+                                        <li class="nav-item">
+                                        <a class="nav-link" href="/translate" style="color:white !important"><i class="fa fa-eye"></i>Translate</a>
+                                        </li>
                                          <li>
                                              <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();"style="color:white !important">
                                                  Logout

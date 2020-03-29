@@ -37,3 +37,26 @@ function confirmDelete(user_id){
 
 
 }
+function tranlation()
+{
+    $('#translateForm').submit(function(e){
+        var translateForm=$(this); 
+            var _token = $('meta[name="csrf-token"]').attr('content');
+        $.ajax({
+            url:'/translate',
+            method:"POST",
+            data:translateForm.serialize(),
+            headers: {
+                'X-CSRF-Token': _token
+            },
+            success:function(data){
+                $('#result').val(data.response_data);
+             
+            }
+    
+        })
+e.preventDefault();
+    })
+   
+}
+
