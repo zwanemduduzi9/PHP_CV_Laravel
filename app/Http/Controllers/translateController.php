@@ -43,7 +43,17 @@ class translateController extends Controller
         $to_language       = substr($data['toLanguage'],0,2);
         $text_to_translate = $data['inputed'];
       
-        $key='AIzaSyADazE6GHdB3h51c4kMMMn9Lt726Vo6Lbc';
+        if($from_language =='Si')
+        {
+            $from_language='St'; 
+        }
+
+        if($to_language=='Si')
+        {
+            $to_language='St'; 
+        }
+
+        //$key='AIzaSyADazE6GHdB3h51c4kMMMn9Lt726Vo6Lbc';
         $format=[
             'key'    => $key,
             'source' => $from_language,
@@ -52,7 +62,7 @@ class translateController extends Controller
         ];
 
         $config               = http_build_query($format);
-        $url                  = 'https://translation.googleapis.com/language/translate/v2?'.$config;
+      //  $url                  = 'https://translation.googleapis.com/language/translate/v2?'.$config;
         $getting_http_request = file_get_contents($url);
         $response             = json_decode($getting_http_request);
         $response_data        = $response->data->translations[0]->translatedText;

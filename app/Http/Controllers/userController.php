@@ -7,6 +7,8 @@ use App\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Request;
+use App\Mail\WelcomeMail;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Redirect;
 class userController extends Controller
@@ -38,9 +40,10 @@ class userController extends Controller
        $validator=Validator::make($userData,$rules);
 
        if($validator->passes()){
+             
+          Mail::to($userData['email'])->send(new WelcomeMail());
 
-          $storeUserData=new User();
-
+          $storeUserData                         = new User();
           $storeUserData->name                   = $userData['name'];
           $storeUserData->surname                = $userData['Surname'];
           $storeUserData->Mobile_Number          = $userData['Mobile_Number'];
